@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+
+.wrapper {
+  .make-row();
+}
+.content-main {
+  .make-lg-column(18);
+  .make-xs-column(18);
+  .make-sm-column(18);
+  .make-md-column(18);
+}
+.image-custom{
+	max-height:600px;
+}
+.selicon{
+	height:100px;
+	margin-left:auto; margin-right:auto;
+}
+/*------------ common page--------------*/
+.pageTitle{
+	position:relative;
+	left:30%;
+	font-weight:bold;
+}
+.thum_image{
+	width:80px; height:80px;
+	float:left;
+}
+.banner_image{
+	max-width:100%; max-height:100%;
+}
+.page_title{
+	font-weight:bold;
+	font-size:18px;
+}
+.content_title{
+	position:relative;
+	left:2%;
+}
+.detail_icon{
+	width:80%;
+}
+.join_btn{
+	float:right;
+}
+.join_modal{
+	margin-left:auto; margin-right:auto;
+	color:#19b96a;
+}
+

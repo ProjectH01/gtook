@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+/* default */
+html {overflow-y:scroll;}
+body {padding:70px;color:#555;}
+li {list-style:none;}
+/*legend, .hidden {position:absolute; left:-9999px; width:1px; height:1px; font-size:0; line-height:0; overflow:hidden;}
+caption {position:static; margin:0 !important; height:0 !important; font-size:0 !important; line-height:0 !important; overflow:hidden;}
+fieldset {border:0;}
+
+img {vertical-align:middle; border:0;}
+input, button, label, textarea, select {vertical-align:middle;}
+button {border:0; cursor:pointer; background:transparent; overflow:visible;}
+button::-moz-focus-inner {border:0; padding:0;}
+input::-moz-focus-inner {border:0; padding:0}
+
+div .sidebar_menu {float:left; width:240px;}
+div .row li {float:left;}*/
+
+.profile{
+	float:right;
+}

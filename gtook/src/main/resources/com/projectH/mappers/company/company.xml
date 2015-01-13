@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="company">
+	
+	<!-- 중복아이디 검색 -->
+  	<select id="id_check" parameterType="String" resultType="company">
+    	select * from TB_COMPANY_INFO where company_id=#{company_id}
+ 	</select>
+ 	
+ 	 <!-- 회원저장 -->
+	  <insert id="company_in" parameterType="company">
+	    insert into TB_COMPANY_INFO (company_id,company_pwd,company_name,company_phone,company_email,company_letter,company_cash_num,company_total_cash,company_div)
+	    values(#{company_id},#{company_pwd},#{company_name},#{company_phone},#{company_email},#{company_letter},#{company_cash_num},0,#{company_div})
+	  </insert>
+	  
+	  <!-- 로그인 인증 -->
+	   <select id="login_check" parameterType="String" resultType="company">
+   			select * from TB_COMPANY_INFO where company_id=#{company_id}
+	   </select>
+	   
+	   <!-- 광고중인 이벤트 갯수 -->
+	   	<select id="eve_progress_count" parameterType="event" resultType="int">
+	   		select count(*) from TB_EVENT where company_id=#{company_id} and eve_state=1
+	   	</select>
+	   	
+	   	<!-- 상담요청 갯수 -->
+	   	<select id="eve_req_count" parameterType="eventreq" resultType="int">
+	   		select count(*) from TB_EVE_REQ where company_id=#{company_id}
+	   	</select>
+	   
+	   <!-- 이벤트 광고중 변경 -->
+	   	<update id="eve_state_edit" parameterType="event">
+	   		update TB_EVENT set eve_state=#{eve_state} where event=#{event}
+	   	</update>
+	   
+	   <!-- 이벤트 목록 -->
+	   	<select id="event_list" parameterType="event" resultType="event">
+   			select e.EVENT as EVENT, COMPANY_ID, EVE_START_DATE,ec.CS_COUNT as CS_COUNT,DB_PRICE,EVE_STATE,CS_NOTE 
+			from (select * from TB_EVENT where company_id=#{company_id}) e left outer join(select event, count(event) as CS_COUNT from TB_EVE_REQ where company_id=#{company_id} group by event) ec
+			on e.event = ec.event 
+	   	</select>
+	   	
+	   <!-- 이벤트 등록 -->
+	   	<insert id="event_in" parameterType="company">
+    		Insert into TB_EVENT (company_id, event, eve_start_date, cs_count, db_price, eve_state, cs_note, banner_image, detail_image, content_div, company_name)
+			Values(#{company_id},#{event},now(),0,#{db_price},1,#{cs_note},#{banner_image},#{detail_image},#{content_div},#{company_name});
+		</insert>
+		
+		<!-- 이벤트 수정 -->
+		<update id="event_edit" parameterType="event">
+	 		update TB_EVENT set event=#{event},banner_image=#{banner_image},detail_image=#{detail_image}
+	 		where company_id=#{company_id}
+		</update>
+		
+		<!-- 이벤트 내용 보기 -->
+			<select id="event_cont" parameterType="event" resultType="event">
+				select * from TB_EVENT where event=#{event}
+			</select>
+			
+		<!-- 상담문의 목록 -->
+		<select id="eventreq_list" parameterType="eventreq" resultType="eventreq">
+   			select req.USER_ID as USER_ID, CS_TIME, CS_DATE,CS_STATE,EVENT,COMPANY_ID, USER_NAME, USER_PHONE
+			from (select * from TB_EVE_REQ where company_id=#{company_id}) req inner join TB_USER_INFO userinfo
+			on req.user_id = userinfo.user_id
+			order by event
+	   	</select>
+	   	
+	   	<!-- 상담문의 변경 -->
+	   	<update id="cs_state_edit" parameterType="eventreq">
+	   		update TB_EVE_REQ set cs_state=#{cs_state} where event=#{event} and user_id=#{user_id}
+	   	</update>
+</mapper>

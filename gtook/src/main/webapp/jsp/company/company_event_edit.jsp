@@ -89,14 +89,26 @@
 					</tr>
 					<tr>
 						<th>카테고리 설정</th>
-						<td><select id="category">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-						</select></td>
+						<td><div class="form-inline"><select id="content_div" name="content_div" class="form-control">
+								<option value="">- 카테고리 선택 -</option>
+								<option value="치과">치과</option>
+                              <option value="안과">안과</option>
+                              <option value="눈/코성형">눈/코 성형</option>
+                              <option value="보톡스/필러">보톡스/필러</option>
+                              <option value="뷰티주사">뷰티주사</option>
+                              <option value="피부과">피부과</option>
+                              <option value="양악/안면윤곽">양악/안면윤곽</option>
+                              <option value="동안성형/리프팅">동안성형/리프팅</option>
+                              <option value="가슴성형">가슴성형</option>
+                              <option value="지방흡입">지방흡입</option>
+                              <option value="지방이식">지방이식</option>
+                              <option value="다이어트">다이어트</option>
+                              <option value="남자성형">남자성형</option>
+                              <option value="다리성형">다리성형</option>
+                              <option value="여성검진클리닉">여성검진 클리닉</option>
+                              <option value="탈모/모발이식">탈모/모발이식</option>
+                              <option value="반영구시술">반영구시술</option>
+							</select></div></td>
 					</tr>
 				</table>
 				<div>

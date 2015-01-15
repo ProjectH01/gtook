@@ -13,6 +13,7 @@ public class EventBean {
 	private String detail_image;
 	private String content_div;
 	private String company_name;
+	private int event_hit;
 	
 	public String getCompany_name() {
 		return company_name;
@@ -79,6 +80,12 @@ public class EventBean {
 	}
 	public void setDetail_image(String detail_image) {
 		this.detail_image = detail_image;
+	}
+	public int getEvent_hit() {
+		return event_hit;
+	}
+	public void setEvent_hit(int event_hit) {
+		this.event_hit = event_hit;
 	}
 	
 	

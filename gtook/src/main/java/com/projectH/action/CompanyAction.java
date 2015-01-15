@@ -255,7 +255,7 @@ public class CompanyAction {
 		             out.println("location='company_index.com';");
 		             out.println("</script>");
 		          }else{
-		          String saveFolder="D:/jin/work/projectH-master/projectH-master/src/main/webapp/upload";
+		          String saveFolder="C:/Users/USER/git/gtook/gtook/src/main/webapp/upload";
 		          //이진파일 업로드 경로      
 		          int fileSize=5*1024*1024;//이진파일 업로드 최대크기,5mb
 		       

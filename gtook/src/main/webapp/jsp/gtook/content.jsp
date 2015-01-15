@@ -62,6 +62,7 @@
 						</h3>
 						<input type="hidden" id="event" name="event" value="${d.event}"/>
 						<input type="hidden" id="company_name" name="company_name" value="${d.company_name}"/>
+						<div>조회수: ${d.event_hit}</div>
 						<br/>
 						<img src="./upload/banner${d.banner_image}" class="img-rounded banner_image" alt="배너이미지"> <br /> <br />
 						<div class="row">

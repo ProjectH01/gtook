@@ -29,7 +29,7 @@ update TB_COMPANY_INFO set company_total_cash=300000 where company_id='admin';
 CREATE TABLE TB_EVENT(/*이벤트 테이블*/
 EVENT VARCHAR(100) PRIMARY KEY /*이벤트명(PK)*/	
 ,COMPANY_ID	VARCHAR(50) /*아이디(PK)(FK)*/
-,,COMPANY_NAME VARCHAR(50)
+,COMPANY_NAME VARCHAR(50)
 ,EVE_START_DATE	DATE /*이벤트 시작일*/	
 ,CS_COUNT	INTEGER /*상담건수*/	
 ,DB_PRICE	INTEGER /*DB단가*/	
@@ -38,12 +38,16 @@ EVENT VARCHAR(100) PRIMARY KEY /*이벤트명(PK)*/
 ,BANNER_IMAGE varchar(100)
 ,DETAIL_IMAGE varchar(100)
 ,CONTENT_DIV VARCHAR(100) /*카테고리 */
+,EVENT_HIT INT DEFAULT 0
 );
 
 alter table TB_EVENT add BANNER_IMAGE varchar(100);
 alter table TB_EVENT add DETAIL_IMAGE varchar(100);
 alter table TB_EVENT add COMPANY_NAME VARCHAR(50);
+alter table TB_EVENT add CONTENT_DIV VARCHAR(100);
+alter table TB_EVENT add COMPANY_NAME VARCHAR(50);
 
+update TB_EVENT set event='사과같은 내얼굴' where content_div='피부과'
 
 select * from TB_EVENT;
 
@@ -71,3 +75,4 @@ COMPANY_ID	VARCHAR(50) PRIMARY KEY/*아이디(PK)*/
 
 select * from TB_COMPANY_INFO;
 drop table TB_EVE_REQ;
+

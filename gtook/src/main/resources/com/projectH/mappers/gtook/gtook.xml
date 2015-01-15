@@ -20,4 +20,7 @@
  	<select id="getDetail" parameterType="event" resultType="event">
  		select * from TB_EVENT where event=#{event} and company_name=#{company_name}
  	</select>
+ 	<update id="event_hit" parameterType="event">
+	    update TB_EVENT set event_hit=event_hit+1 where event=#{event} 
+  	</update>
 </mapper>

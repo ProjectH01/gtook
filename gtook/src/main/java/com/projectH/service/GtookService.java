@@ -17,6 +17,9 @@ public interface GtookService {
 
 	EventBean getDetailcont(EventBean eventbean);//이벤트 세부내용 불러오기
 
+	void updateHit(EventBean eventbean);
+
+
 
 }
 

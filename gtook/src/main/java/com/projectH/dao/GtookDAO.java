@@ -19,5 +19,9 @@ public interface GtookDAO {
 
 	EventBean getDetailcont(EventBean eventbean);
 
+	void updatehit(EventBean eventbean);
+
+
+
 
 }

@@ -41,5 +41,17 @@ public class GtookServiceImpl implements GtookService {
 		return gtookdao.getDetailcont(eventbean);
 	}
 
+	@Override
+	public void updateHit(EventBean eventbean) {
+		gtookdao.updatehit(eventbean);
+		
+	}
+
+
+
+	
+
+	
+
 
 }

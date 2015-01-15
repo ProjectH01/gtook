@@ -46,4 +46,14 @@ public class GtookDAOImpl implements GtookDAO {
 		return sqlsession.selectOne("getDetail", eventbean);
 	}
 
+	@Override
+	public void updatehit(EventBean eventbean) {
+		sqlsession.update("event_hit", eventbean);
+	}
+
+	
+
+
+	
+
 }

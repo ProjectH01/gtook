@@ -89,23 +89,29 @@ public class GtookAction {
 		return "gtook/errorpage";
 	}
 	@RequestMapping("/content.com")
-	public ModelAndView content(@RequestParam("state") String state)throws Exception{
+	public ModelAndView content(@RequestParam("state") String state,@ModelAttribute EventBean eventbean)throws Exception{
 		state=new String(state.getBytes("ISO-8859-1"),"utf-8");
 		List<EventBean> content = gtookservice.getContent(state);
+		
 		ModelAndView m = new ModelAndView("gtook/content");
+	
 		m.addObject("state",state);
 		m.addObject("cont",content);
+		
 		return m;
 	}
 	
 	@RequestMapping(value="/content_detail.com")
 	public ModelAndView content_detail(@ModelAttribute EventBean eventbean)throws Exception{
 		//카테고리,이벤트제목,병원이름,디테일 이미지
-		String name=new String(eventbean.getCompany_name().getBytes("ISO-8859-1"),"utf-8");
-		String event=new String(eventbean.getEvent().getBytes("ISO-8859-1"),"utf-8");
-		eventbean.setEvent(event);
-		eventbean.setCompany_name(name);
-		EventBean cont = gtookservice.getDetailcont(eventbean);
+		//String name=new String(eventbean.getCompany_name().getBytes("ISO-8859-1"),"utf-8");
+		//String event=new String(eventbean.getEvent().getBytes("ISO-8859-1"),"utf-8");
+	
+		//eventbean.setEvent(event);
+		//eventbean.setCompany_name(name);
+		
+		this.gtookservice.updateHit(eventbean);
+		EventBean cont = this.gtookservice.getDetailcont(eventbean);
 		ModelAndView m = new ModelAndView("gtook/content_detail");
 		m.addObject("cont", cont);
 		return m;
